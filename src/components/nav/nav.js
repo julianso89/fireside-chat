@@ -17,15 +17,15 @@ class Nav extends Component {
     ]
   };
 
-  componentDidMount(){
-    console.log('Side Nav Ref:', this.sideNav);
+  componentDidMount() {
+    console.log("Side Nav Ref:", this.sideNav);
 
     M.Sidenav.init(this.sideNav);
   }
 
-  setSideNavRef = (element) => {
+  setSideNavRef = element => {
     this.sideNav = element;
-  }
+  };
 
   render() {
     const linkElements = this.state.links.map(link => {
@@ -43,12 +43,14 @@ class Nav extends Component {
             <Link className="brand-logo" to="/">
               Fireside Chat
             </Link>
+            <a href="#" data-target="side-nav" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
+            </a>
             <ul className="right hide-on-med-and-down">{linkElements}</ul>
           </div>
         </nav>
-        <SideNav setRef={this.setSideNavRef} links={linkElements}/>
-        <a href="#" data-target="side-nav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
+        <SideNav setRef={this.setSideNavRef} links={linkElements} />
       </Fragment>
     );
   }
